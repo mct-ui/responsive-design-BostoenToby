@@ -3,22 +3,21 @@
 \*------------------------------------*/
 
 @font-face {
-  font-family: 'HK Grotesk Web';
-  font-weight: 200;
-  src: url('../fonts/hkgrotesk-light-webfont.woff') format('woff'), url('../fonts/hkgrotesk-light-webfont.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'HK Grotesk Web';
-  font-weight: 400;
-  src: url('../fonts/hkgrotesk-regular-webfont.woff') format('woff'), url('../fonts/hkgrotesk-regular-webfont.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'HK Grotesk Web';
-  font-weight: 600;
-  src: url('../fonts/hkgrotesk-medium-webfont.woff') format('woff'), url('../fonts/hkgrotesk-medium-webfont.woff2') format('woff2');
-}
+    font-family: 'HK Grotesk';
+    font-weight: 200;
+    src: url('../fonts/hkgrotesk-light-webfont.woff') format('woff'), url('../fonts/hkgrotesk-light-webfont.woff2') format('woff2');
+  }
+  
+  @font-face {
+    font-family: 'HK Grotesk';
+    font-weight: 400;
+    src: url('../fonts/hkgrotesk-regular-webfont.woff') format('woff'), url('../fonts/hkgrotesk-regular-webfont.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'HK Grotesk';
+    font-weight: 600;
+    src: url('../fonts/hkgrotesk-medium-webfont.woff') format('woff'), url('../fonts/hkgrotesk-medium-webfont.woff2') format('woff2');
+  }
 
 /*------------------------------------*\
   #GENERIC
@@ -49,7 +48,7 @@ html {
 @media (min-width: 768px) {
   html {
     font-size: 20px;
-    line-height: 16px;
+    line-height: 1.6;
   }
 }
 
@@ -209,6 +208,11 @@ a:focus {
     padding-right: 48px;
   }
 
+  .o-row--md {
+      padding-top: 48px;
+      padding-bottom: 48px;
+  }
+
   .o-row--lg {
     padding-top: 72px;
     padding-bottom: 48px;
@@ -356,9 +360,57 @@ a:focus {
   padding: 0;
 }
 
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+    display: flow-root;
+}
+
+.o-section + .o-section {
+    margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+    .o-section--lg + .o-section--lg,
+    .o-section--xl + .o-section--xl {
+        margin-top: 48px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .o-section--xl + .o-section--xl {
+        margin-top: 72px;
+    }
+}
+
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
+
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+
+.c-header__nav {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .c-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .c-header__nav {
+        display: block;
+    }
+}
 
 /*
     Component: Logo
@@ -379,6 +431,7 @@ a:focus {
     height: 40px;
   }
 }
+
 
 /*
     Component: Nav
@@ -428,6 +481,33 @@ a:focus {
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+    padding-top: 0 !important;
+}
+
+.u-pt-sm {
+    padding-top: 8px;
+}
+
+.u-pt-md {
+    padding-top: 16px;
+}
+
+.u-pt-lg {
+    padding-top: 24px;
+}
+
+.u-mb-clear {
+    margin-bottom: 0;
+}
+
 
 /*
     Utilities: max-width
